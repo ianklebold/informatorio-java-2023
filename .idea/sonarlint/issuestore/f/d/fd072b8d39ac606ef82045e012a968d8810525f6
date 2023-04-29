@@ -1,0 +1,41 @@
+
+^
+java:S1192
+"IDefine a constant instead of duplicating this literal "Hoy es :" 5 times.(‹Ä’C
+W
+java:S4973"<Strings and Boxed types should be compared using "equals()".(ÆÁÃßúÿÿÿÿ
+W
+java:S4973"<Strings and Boxed types should be compared using "equals()".(Š§µûÿÿÿÿ
+W
+java:S4973"<Strings and Boxed types should be compared using "equals()".(Š§µûÿÿÿÿ
+Q
+java:S4973"<Strings and Boxed types should be compared using "equals()".(™‡‰y
+R
+java:S4973#"<Strings and Boxed types should be compared using "equals()".(œ–ˆ
+R
+java:S4973'"<Strings and Boxed types should be compared using "equals()".(ìöÆŽ
+R
+java:S2589"7Remove this expression which always evaluates to "true"(ÆÁÃßúÿÿÿÿ
+M
+java:S2589"7Remove this expression which always evaluates to "true"(ŸÙ³¯
+Y
+java:S2583"DChange this condition so that it does not always evaluate to "false"(¤¤˜
+Y
+java:S2583	"CChange this condition so that it does not always evaluate to "true"(ŸÙ³¯
+h
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(Çµí‘
+M	java:S106
+"9Replace this use of System.out or System.err by a logger.(‹Ä’C
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ïŒàúÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(‘Ý¶Ì
+M	java:S106"9Replace this use of System.out or System.err by a logger.(‹Ä’C
+<
+java:S1125"'Remove the unnecessary boolean literal.(¤¤˜
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ïŒàúÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(óÇ•Ã
+S	java:S106"9Replace this use of System.out or System.err by a logger.(¦¿¿Ôþÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(üõœæüÿÿÿÿ
+S	java:S106!"9Replace this use of System.out or System.err by a logger.(·­Ûêûÿÿÿÿ
+S	java:S106%"9Replace this use of System.out or System.err by a logger.(´öÁ”ùÿÿÿÿ
+M	java:S106)"9Replace this use of System.out or System.err by a logger.(•’Ýp
+S	java:S106,"9Replace this use of System.out or System.err by a logger.(’Ø«©ÿÿÿÿÿ
