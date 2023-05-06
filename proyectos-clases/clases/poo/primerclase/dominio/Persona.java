@@ -1,4 +1,4 @@
-package clases.poo.dominio;
+package clases.poo.primerclase.dominio;
 
 public class Persona {
     private String nombre;
