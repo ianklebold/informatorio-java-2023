@@ -1,13 +1,14 @@
 package clases.poo.escenario2;
 
 
+import clases.poo.escenario2.dominio.Categoria;
 import clases.poo.escenario2.dominio.PrecioActual;
 import clases.poo.escenario2.dominio.PrecioTachado;
 import clases.poo.escenario2.dominio.Producto;
+import clases.poo.escenario2.inicializacion.InitService;
 
 import java.time.LocalDateTime;
-import java.util.Scanner;
-import java.util.UUID;
+import java.util.*;
 
 public class App {
 
@@ -16,8 +17,13 @@ public class App {
 
     public static void main(String[] args) {
 
-        System.out.println(crearProducto().toString());
 
+
+        InitService.initCategories();
+
+        Map<String, Categoria> categorias = InitService.categorias;
+
+        System.out.println(crearProducto().toString());
 
     }
 
@@ -32,6 +38,19 @@ public class App {
         System.out.println("INGRESE LA DESCRIPCION DEL PRODUCTO : ");
         productoNuevo.setDescripcion(getScanner().nextLine());
         productoNuevo.setPrecioActual(crearPrecioActual());
+
+        //Cargar categoria
+        //System.out.println("INGRESE LA CATEGORIA : ");
+        //String nombreCategoria = getScanner().nextLine();
+
+        //Consultar si categoria es nulo, si es nulo informar por pantalla y volver a preguntar por la categoria
+        Categoria categoria = InitService.categorias.get("Juguete");
+
+        productoNuevo.setCategoria(categoria);
+        categoria.getListaProductos().add(productoNuevo);
+
+        System.out.println("Categoria asignada : "+productoNuevo.getCategoria().getNombre());
+        System.out.println("Productos de la categoria : "+categoria.getListaProductos());
 
         System.out.println("TIENE DESCUENTO? Si ingrese 1 - No ingrese 0: ");
         int quieroDescuento = getScanner().nextInt();
@@ -82,6 +101,26 @@ public class App {
 
         return precioTachado;
     }
+
+
+    //Crear categoria
+    //Construir la categoria
+    //Instanciar la categoria
+    private static Categoria crearCategoria(){
+        Categoria categoria = new Categoria();
+
+
+        //Mandan scanner
+        categoria.setNombre("Categoria Random");
+        categoria.setDescripcion("Descripcion cualquiera");
+        categoria.setEstaElProductoDisponible(true);
+
+
+        return categoria;
+    }
+
+
+
 
     public static Scanner getScanner() {
         return scanner;

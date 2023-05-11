@@ -1,4 +1,4 @@
-package clases.poo.escenario2.dominio;
+package clases.poo.escenario2v2.dominio;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,16 +8,13 @@ public class Categoria {
     private String descripcion;
     private boolean estaElProductoDisponible;
 
-    private List<Producto> listaProductos = new ArrayList<>();
-
-    public Categoria() {
-    }
-
     public Categoria(String nombre, String descripcion, boolean estaElProductoDisponible) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.estaElProductoDisponible = estaElProductoDisponible;
     }
+
+    private List<Producto> listaProductos = new ArrayList<>();
 
     public String getNombre() {
         return nombre;
@@ -49,15 +46,5 @@ public class Categoria {
 
     public void setEstaElProductoDisponible(boolean estaElProductoDisponible) {
         this.estaElProductoDisponible = estaElProductoDisponible;
-    }
-
-    @Override
-    public String toString() {
-        return "Categoria{" +
-                "nombre='" + nombre + '\'' +
-                ", descripcion='" + descripcion + '\'' +
-                ", estaElProductoDisponible=" + estaElProductoDisponible +
-                ", listaProductos=" + listaProductos +
-                '}';
     }
 }
