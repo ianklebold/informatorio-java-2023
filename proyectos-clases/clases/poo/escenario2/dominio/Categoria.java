@@ -27,8 +27,8 @@ public class Categoria {
         return listaProductos;
     }
 
-    public void setListaProductos(List<Producto> listaProductos) {
-        this.listaProductos = listaProductos;
+    public void setListaProductos(Producto listaProductos) {
+        this.listaProductos.add( listaProductos);
     }
 
     public void setNombre(String nombre) {
@@ -53,11 +53,16 @@ public class Categoria {
 
     @Override
     public String toString() {
-        return "Categoria{" +
+        String mostrar="";
+        mostrar = "Categoria{" +
                 "nombre='" + nombre + '\'' +
                 ", descripcion='" + descripcion + '\'' +
                 ", estaElProductoDisponible=" + estaElProductoDisponible +
-                ", listaProductos=" + listaProductos +
-                '}';
+                 ", listaDeProductos=[" ;
+        for ( int i=0; i < listaProductos.size();i++  ) {
+           mostrar = mostrar + listaProductos.get(i).getNombre() + ", ";
+        }
+        mostrar += "]";
+         return mostrar;
     }
 }

@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class InitService {
 
-    public static Map<String, Categoria> categorias;
+    public static Map<String, Categoria> categorias = new HashMap<String,Categoria>();
 
     public static void initCategories(){
 
@@ -20,7 +20,6 @@ public class InitService {
         categorias.put("Libros y revistas",new Categoria("Libros y revistas", DescripcionesCategorias.LIBRO_NOVELAS_REVISTAS_DESCRIPCION,true));
         categorias.put("Decoracion",new Categoria("Decoracion", DescripcionesCategorias.DECORACION_DESCRIPCION,true));
         categorias.put("Cocina y hogar",new Categoria("Cocina y hogar", DescripcionesCategorias.COCINA_HOGAR,true));
-
 
     }
 

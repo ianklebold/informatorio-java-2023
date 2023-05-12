@@ -82,7 +82,7 @@ public class Producto {
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", descripcion='" + descripcion + '\'' +
-                ", categoria=" + categoria +
+                ", categoria=" + categoria+
                 ", descuento=" + descuento +
                 ", precioActual=" + precioActual +
                 ", precioTachado=" + precioTachado +
