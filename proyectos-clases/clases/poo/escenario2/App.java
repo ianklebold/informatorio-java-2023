@@ -19,12 +19,8 @@ public class App {
 
 
 
-        InitService.initCategories();
-
-        Map<String, Categoria> categorias = InitService.categorias;
-
-        System.out.println(crearProducto().toString());
-
+        InitService.initProductos();
+        mostrarProductosMasCaros();
     }
 
     private static Producto crearProducto(){
@@ -66,7 +62,7 @@ public class App {
             double precioActual = productoNuevo.getPrecioActual().getValor();
 
             //= (1 - (online / tachado)) * 100
-            int descuento = (int) (100 - ((precioActual*precioTachado) / 100)) ;
+            int descuento = (int) (100 - ((precioActual/precioTachado) * 100)) ;
             productoNuevo.setDescuento(descuento);
         }
 
@@ -117,6 +113,74 @@ public class App {
 
 
         return categoria;
+    }
+
+    private static void mostrarProductosMasCaros(){
+        List<Producto> productos = buscarProductosMasCaros(InitService.productos);
+
+        System.out.println("\n\t\t*********************************");
+        System.out.println("\n\n\t*          PRODUCTOS MAS CAROS       *");
+        System.out.println("\n\t\t*********************************\n\n");
+
+        System.out.printf("%-40s%-130s%-40s%-20s%-20s%-20s%n","NOMBRE","DESCRIPCION","CATEGORIA","PRECIO EN LINEA","PRECIO TACHADO","DESCUENTO");
+
+        for (Producto producto:productos) {
+
+            String categoria;
+            if (producto.getCategoria() != null){
+                categoria = producto.getCategoria().getNombre();
+            }else {
+                categoria = "-";
+            }
+
+            String precioTachado;
+            if (producto.getPrecioTachado() != null){
+                precioTachado = Double.toString(producto.getPrecioTachado().getValor());
+            }else {
+                precioTachado = "-";
+            }
+
+            String precioOnline = Double.toString(producto.getPrecioActual().getValor());
+
+            String descuento = Integer.toString(producto.getDescuento());
+
+            System.out.printf("%-40s%-130s%-40s%-20s%-20s%-20s%n",producto.getNombre(),producto.getDescripcion(),categoria,precioOnline,precioTachado,descuento);
+        }
+
+    }
+
+    private static List<Producto> buscarProductosMasCaros(List<Producto> productos){
+
+        //Lista de productos
+        LinkedList<Producto> productosLinked = new LinkedList<>(productos);
+
+        //Lista de productos mas caros
+        List<Producto> productoList = new ArrayList<>();
+
+        for (int i = 0; i < 6; i++) {
+            double precioActual = Double.MIN_VALUE;
+
+            //Producto mas caro por vuelta
+            Producto productoElegido = null;
+
+            //Posicion del producto mas caro
+            int posicion = 0;
+
+            for (int j = 0; j < productosLinked.size(); j++) {
+                if(productosLinked.get(j).getPrecioActual().getValor() >= precioActual){
+                    productoElegido = productosLinked.get(j);
+                    precioActual = productosLinked.get(j).getPrecioActual().getValor();
+                    posicion = j;
+                }
+            }
+            //Elimino producto para no tenerlo en cuenta de nuevo
+            productosLinked.remove(posicion);
+
+            //Agregarlo a lista de productos mas caros
+            productoList.add(productoElegido);
+        }
+
+        return productoList;
     }
 
 

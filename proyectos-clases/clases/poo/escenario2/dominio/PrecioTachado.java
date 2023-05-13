@@ -7,6 +7,15 @@ public class PrecioTachado {
     private LocalDateTime fechaDeCarga;
     private LocalDateTime fechaDeFinalizacion;
 
+    public PrecioTachado() {
+    }
+
+    public PrecioTachado(double valor, LocalDateTime fechaDeCarga, LocalDateTime fechaDeFinalizacion) {
+        this.valor = valor;
+        this.fechaDeCarga = fechaDeCarga;
+        this.fechaDeFinalizacion = fechaDeFinalizacion;
+    }
+
     public double getValor() {
         return valor;
     }

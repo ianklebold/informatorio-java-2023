@@ -2,6 +2,7 @@ package clases.poo.escenario2.dominio;
 
 import clases.poo.escenario2.App;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 public class Producto {
@@ -19,6 +20,30 @@ public class Producto {
     private PrecioActual precioActual;
 
     private PrecioTachado precioTachado;
+
+    public Producto(String nombre, String descripcion, Categoria categoria, double precioActual, double precioTachado) {
+        this.id = UUID.randomUUID();
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.categoria = categoria;
+
+        if(categoria != null){
+            this.categoria.getListaProductos().add(this);
+
+        }
+        if(precioTachado != 0){
+            this.precioActual = new PrecioActual(precioActual,LocalDateTime.now());
+            this.precioTachado = new PrecioTachado(precioTachado,LocalDateTime.now(),null);
+
+            //= (1 - (online / tachado)) * 100
+            this.descuento = (int) (100 - ((this.precioActual.getValor()/this.precioTachado.getValor()) * 100));
+        }else {
+            this.precioActual = new PrecioActual(precioActual,LocalDateTime.now());
+            this.descuento = 0;
+        }
+    }
+
+    public Producto() {}
 
     public UUID getId() {
         return id;

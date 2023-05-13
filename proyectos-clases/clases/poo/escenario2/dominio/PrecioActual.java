@@ -24,6 +24,14 @@ public class PrecioActual {
         this.fechaDeCarga = fechaDeCarga;
     }
 
+    public PrecioActual(double valor, LocalDateTime fechaDeCarga) {
+        this.valor = valor;
+        this.fechaDeCarga = fechaDeCarga;
+    }
+
+    public PrecioActual() {
+    }
+
     @Override
     public String toString() {
         return "PrecioActual{" +
