@@ -14,6 +14,7 @@ public class App {
 
     //Atributo global
     private static Scanner scanner = new Scanner(System.in);
+   private static Map<String, Categoria> categorias = InitService.categorias;
 
     public static void main(String[] args) {
 
@@ -34,7 +35,7 @@ public class App {
         productoNuevo.setPrecioActual(crearPrecioActual());
 
         //Cargar categoria
-        //System.out.println("INGRESE LA CATEGORIA : ");
+        System.out.println("INGRESE LA CATEGORIA : ");
         //String nombreCategoria = getScanner().nextLine();
 
         //Consultar si categoria es nulo, si es nulo informar por pantalla y volver a preguntar por la categoria
@@ -43,7 +44,10 @@ public class App {
         productoNuevo.setCategoria(categoria);
         categoria.getListaProductos().add(productoNuevo);
 
+        System.out.println(categoria);
         System.out.println("Categoria asignada : "+productoNuevo.getCategoria().getNombre());
+
+
         System.out.println("Productos de la categoria : "+categoria.getListaProductos());
 
         System.out.println("TIENE DESCUENTO? Si ingrese 1 - No ingrese 0: ");
@@ -69,12 +73,12 @@ public class App {
         return productoNuevo;
     }
 
+
     private static PrecioActual crearPrecioActual(){
         PrecioActual precioActual = new PrecioActual();
         System.out.println("INGRESE PRECIO DEL PRODUCTO : ");
         precioActual.setValor(getScanner().nextDouble());
         precioActual.setFechaDeCarga(LocalDateTime.now());
-
         return precioActual;
     }
 

@@ -8,7 +8,7 @@ import java.util.*;
 
 public class InitService {
 
-    public static Map<String, Categoria> categorias;
+    public static Map<String, Categoria> categorias = new HashMap<String,Categoria>();
 
     public static List<Producto> productos;
 
