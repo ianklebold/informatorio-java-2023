@@ -22,7 +22,7 @@ public class InitService {
 
 
 
-    public static void initProductos(){
+    public static void cargarProductos(){
 
         Map<String,Categoria> categoriaMap = new HashMap<>();
 

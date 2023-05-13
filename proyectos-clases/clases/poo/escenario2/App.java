@@ -17,9 +17,7 @@ public class App {
 
     public static void main(String[] args) {
 
-
-
-        InitService.initProductos();
+        InitService.cargarProductos();
         mostrarProductosMasCaros();
     }
 
@@ -65,6 +63,8 @@ public class App {
             int descuento = (int) (100 - ((precioActual/precioTachado) * 100)) ;
             productoNuevo.setDescuento(descuento);
         }
+
+        InitService.productos.add(productoNuevo);
 
         return productoNuevo;
     }
@@ -124,10 +124,12 @@ public class App {
 
         System.out.printf("%-40s%-130s%-40s%-20s%-20s%-20s%n","NOMBRE","DESCRIPCION","CATEGORIA","PRECIO EN LINEA","PRECIO TACHADO","DESCUENTO");
 
+        //Nuevo bucle for, llamado For each // Ejemplo = [PRODUCTO1, NULL, PRODUCTO3]
         for (Producto producto:productos) {
 
             String categoria;
             if (producto.getCategoria() != null){
+                //Guardo el nombre de la categoria
                 categoria = producto.getCategoria().getNombre();
             }else {
                 categoria = "-";
@@ -135,6 +137,7 @@ public class App {
 
             String precioTachado;
             if (producto.getPrecioTachado() != null){
+                //Clases Wrapper
                 precioTachado = Double.toString(producto.getPrecioTachado().getValor());
             }else {
                 precioTachado = "-";
@@ -152,12 +155,12 @@ public class App {
     private static List<Producto> buscarProductosMasCaros(List<Producto> productos){
 
         //Lista de productos
-        LinkedList<Producto> productosLinked = new LinkedList<>(productos);
+        List<Producto> productosLinked = new LinkedList<>(productos);
 
         //Lista de productos mas caros
         List<Producto> productoList = new ArrayList<>();
 
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 5; i++) {
             double precioActual = Double.MIN_VALUE;
 
             //Producto mas caro por vuelta
@@ -167,7 +170,14 @@ public class App {
             int posicion = 0;
 
             for (int j = 0; j < productosLinked.size(); j++) {
-                if(productosLinked.get(j).getPrecioActual().getValor() >= precioActual){
+
+                Producto productoDelCiclo = productosLinked.get(j);
+
+                PrecioActual precioActualDelCiclo = productoDelCiclo.getPrecioActual();
+
+                double valorDelPrecio = precioActualDelCiclo.getValor();
+
+                if(  valorDelPrecio    >= precioActual){
                     productoElegido = productosLinked.get(j);
                     precioActual = productosLinked.get(j).getPrecioActual().getValor();
                     posicion = j;

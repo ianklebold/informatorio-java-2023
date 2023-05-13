@@ -25,10 +25,13 @@ public class Producto {
         this.id = UUID.randomUUID();
         this.nombre = nombre;
         this.descripcion = descripcion;
+
+        //Producto conoce categoria
         this.categoria = categoria;
 
         if(categoria != null){
-            this.categoria.getListaProductos().add(this);
+            //Agregamos a la lista de productos
+            categoria.getListaProductos().add(this);
 
         }
         if(precioTachado != 0){
