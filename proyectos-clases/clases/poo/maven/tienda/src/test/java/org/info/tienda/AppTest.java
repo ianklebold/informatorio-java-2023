@@ -1,4 +1,4 @@
-package org.info.javajedi;
+package org.info.tienda;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
