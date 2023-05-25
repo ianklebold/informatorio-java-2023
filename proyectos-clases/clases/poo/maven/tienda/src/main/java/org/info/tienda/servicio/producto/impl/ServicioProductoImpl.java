@@ -5,7 +5,7 @@ import org.info.tienda.domain.PrecioActual;
 import org.info.tienda.domain.Producto;
 import org.info.tienda.servicio.descuento.DescuentoService;
 import org.info.tienda.servicio.descuento.impl.DescuentoServiceImpl;
-import org.info.tienda.servicio.entrada.impl.InputService;
+import org.info.tienda.servicio.entrada.console.impl.InputService;
 import org.info.tienda.servicio.precio.PrecioService;
 import org.info.tienda.servicio.precio.impl.PrecioServiceImpl;
 import org.info.tienda.servicio.producto.ServicioProducto;

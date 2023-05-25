@@ -3,7 +3,6 @@ package org.info.tienda.servicio.precio.impl;
 
 import org.info.tienda.domain.PrecioActual;
 import org.info.tienda.domain.PrecioTachado;
-import org.info.tienda.servicio.entrada.impl.InputService;
 import org.info.tienda.servicio.precio.PrecioService;
 
 import java.time.LocalDateTime;

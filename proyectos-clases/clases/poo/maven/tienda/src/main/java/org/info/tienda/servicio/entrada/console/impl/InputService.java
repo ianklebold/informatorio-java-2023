@@ -1,4 +1,4 @@
-package org.info.tienda.servicio.entrada.impl;
+package org.info.tienda.servicio.entrada.console.impl;
 
 import java.util.Scanner;
 

@@ -2,7 +2,7 @@ package org.info.tienda.domain;
 
 import java.time.LocalDateTime;
 
-public abstract class Precio {
+public abstract class Precio{
 
     protected double valor;
 
