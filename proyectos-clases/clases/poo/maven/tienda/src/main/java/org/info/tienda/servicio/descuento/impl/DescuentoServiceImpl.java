@@ -21,7 +21,13 @@ public class DescuentoServiceImpl implements DescuentoService {
         double precioActual = producto.getPrecioActual().getValor();
 
         //= (1 - (online / tachado)) * 100
-        int descuento = (int) (100 - ((precioActual*precioTachado) / 100)) ;
+        int descuento = calculateDiscount(precioTachado,precioActual);
         producto.setDescuento(descuento);
     }
+
+    private int calculateDiscount(final double  precioTachado, final double precioActual){
+        return (int) (100 - ((precioActual*precioTachado) / 100));
+    }
+
+
 }
